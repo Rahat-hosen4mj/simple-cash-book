@@ -2,12 +2,13 @@
 function getIncomeBalance(){
     const incomeField = document.getElementById('income-field')
     let incomeBalance = parseFloat(incomeField.value);
-    if(isNaN(incomeBalance) || incomeBalance < 0){
+   /*  if(isNaN(incomeBalance) || incomeBalance < 0){
         alert(`Negative or string type Balance aren't acceptable`);
         return 0;
      }else{
          return incomeBalance;
-     }   
+     }  */
+     return incomeBalance;  
 }
 
 // get Expenses amount number
@@ -36,40 +37,33 @@ function getBalance(){
 }
 
 document.getElementById('calculate').addEventListener("click",function(){
-   /*  const incomeField = document.getElementById('income-field')
-    let incomeBalance = parseFloat(incomeField.value); */
     const incomeBalance = getIncomeBalance();
-
-    //  expenses calculation
-    /* const foodField = document.getElementById('food-field');
-    let foodExpense = parseFloat(foodField.value); */
-    const foodExpense =  getExpensesAmount('food-field')
-
-   /*  const rentField = document.getElementById('rent-field');
-    let rentExpense = parseFloat(rentField.value); */
-    const rentExpense = getExpensesAmount('rent-field')
-
-  /*   const clothField = document.getElementById('cloth-field');
-    let clothExpense = parseFloat(clothField.value); */
-    const clothExpense = getExpensesAmount('cloth-field')
-
-    // total expense calculation
-    const totalExpenseField = document.getElementById('total-expense');
-    const totalExpense = foodExpense + rentExpense + clothExpense;
-    totalExpenseField.innerText = totalExpense;
-    if(totalExpense > incomeBalance){
-        alert(`Tomar total expenses income balance er theke besi hoey jacce.`)
-    }
-    // balance field
-    const balanceField = document.getElementById('balance')
-    const balance = incomeBalance - totalExpense
-    balanceField.innerText = balance;
+    if(isNaN(incomeBalance) || incomeBalance < 0){
+        alert(`Negative or string type Balance aren't acceptable`);
+       
+     }else{
+        const foodExpense =  getExpensesAmount('food-field')
+        const rentExpense = getExpensesAmount('rent-field')
+        const clothExpense = getExpensesAmount('cloth-field')
+    
+        // total expense calculation
+        const totalExpenseField = document.getElementById('total-expense');
+        const totalExpense = foodExpense + rentExpense + clothExpense;
+        totalExpenseField.innerText = totalExpense;
+        if(totalExpense > incomeBalance){
+            alert(`Tomar total expenses income balance er theke besi hoey jacce.`)
+        }
+        // balance field
+        const balanceField = document.getElementById('balance')
+        const balance = incomeBalance - totalExpense
+        balanceField.innerText = balance; 
+     }  
+   
+   
 });
 
 // saving calculation
 document.getElementById('saving-btn').addEventListener('click', function(){
-/*     const incomeField = document.getElementById('income-field')
-    let incomeBalance = parseFloat(incomeField.value); */
     const incomeBalance = getIncomeBalance()
     const previousBalaceAmount = getBalance()
 
