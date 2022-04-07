@@ -2,12 +2,6 @@
 function getIncomeBalance(){
     const incomeField = document.getElementById('income-field')
     let incomeBalance = parseFloat(incomeField.value);
-   /*  if(isNaN(incomeBalance) || incomeBalance < 0){
-        alert(`Negative or string type Balance aren't acceptable`);
-        return 0;
-     }else{
-         return incomeBalance;
-     }  */
      return incomeBalance;  
 }
 
@@ -36,6 +30,7 @@ function getBalance(){
     return previousBalaceAmount;
 }
 
+// handle calculation button
 document.getElementById('calculate').addEventListener("click",function(){
     const incomeBalance = getIncomeBalance();
     if(isNaN(incomeBalance) || incomeBalance < 0){
@@ -58,8 +53,6 @@ document.getElementById('calculate').addEventListener("click",function(){
         const balance = incomeBalance - totalExpense
         balanceField.innerText = balance; 
      }  
-   
-   
 });
 
 // saving calculation
